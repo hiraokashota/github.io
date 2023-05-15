@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,26 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('tasks', TaskController::class);
+//Route::get('task','App\Http\Controllers\TaskController@index');//タスク画面
+// Route::get('/',[TaskController::class,'index']);//タスク画面
+// Route::post('task/create',[TaskController::class,'create']);//タスク追加
+// Route::post('task/edit',[TaskController::class,'edit']);//タスク更新
+// Route::post('task/delete',[TaskController::class,'delete']);//タスク削除
 
-
-Route::get('hello/{msg?}',function($msg='no message.') {
-    $html = <<<EOF
-<html>
-<head>
-<title>Hello</title>
-<style>
-body{font-size:16pt; color:#999;}
-h1{font-size: 100pt; text-align:right; color:#eee;
-    margin:-40px 0px -50px 0px;}
-</style>
-</head>
-<body>
-    <h1>Hello</h1>
-    <p>{$msg}</p>
-    <p>これはサンプルで作ったページです。</p>
-</body>
-</html>
-EOF;
-
-    return $html;
-});
+Route::get('report','App\Http\Controllers\ReportController@index');
