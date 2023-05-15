@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use Illuminate\Support\Facades\DB;
 
 class TaskController extends Controller
 {
     public function index(Request $request)
    {
 
-    $tasks = \DB::table('tasks')->get();    
+    $tasks = DB::table('tasks')->get();    
      return view('task', ['tasks' => $tasks]);
    }
 
