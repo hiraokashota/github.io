@@ -14,15 +14,15 @@ use App\Http\Controllers\TaskController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::resource('tasks', TaskController::class);
 //Route::get('task','App\Http\Controllers\TaskController@index');//タスク画面
 // Route::get('/',[TaskController::class,'index']);//タスク画面
-// Route::post('task/create',[TaskController::class,'create']);//タスク追加
-// Route::post('task/edit',[TaskController::class,'edit']);//タスク更新
-// Route::post('task/delete',[TaskController::class,'delete']);//タスク削除
+Route::post('tasks/create',[TaskController::class,'store']);//タスク追加
+Route::post('tasks/edit',[TaskController::class,'edit']);//タスク更新
+Route::post('tasks/delete',[TaskController::class,'delete']);//タスク削除
 
 Route::get('report','App\Http\Controllers\ReportController@index');

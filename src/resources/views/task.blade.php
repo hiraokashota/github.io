@@ -72,12 +72,14 @@
                                         <td class="p-0 text-right text-sm font-medium">
                                             <div class="flex justify-end">
                                                 <div>
-                                                    <form action="/tasks/{{ $task->status_flg }}"
+                                                    <form action="/tasks/{{ $task->id }}"
                                                         method="post"
                                                         class="inline-block text-gray-500 font-medium"
                                                         role="menuitem" tabindex="-1">
                                                         @csrf
                                                         @method('PUT')
+
+                                                        <input type="hidden" name="status" value="{{$task->status_flg}}">
                                                         <button type="submit"
                                                             class="bg-emerald-700 py-4 w-20 text-white md:hover:bg-emerald-800 transition-colors">完了</button>
                                                     </form>
@@ -86,15 +88,17 @@
                                                     <a href="/tasks/{{ $task->id }}/edit/"
                                                         class="inline-block text-center py-4 w-20 underline underline-offset-2 text-sky-600 md:hover:bg-sky-100 transition-colors">編集</a>
                                                 </div>
+                                                
                                                 <div>
-                                                    <form action="/tasks/{{ $task->id }}" method="post"
-                                                        class="inline-block text-gray-500 font-medium"
-                                                        role="menuitem" tabindex="-1">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit"
-                                                            class="py-4 w-20 md:hover:bg-slate-200 transition-colors">削除</button>
-                                                    </form>
+                                                <form onsubmit="return deleteTask();"
+                                                    action="/tasks/{{ $task->id }}" method="post"
+                                                    class="inline-block text-gray-500 font-medium"
+                                                    role="menuitem" tabindex="-1">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        class="py-4 w-20 md:hover:bg-slate-200 transition-colors">削除</button>
+                                                </form>
                                                 </div>
                                             </div>
                                         </td>
@@ -106,5 +110,14 @@
                 </div>
             </div>
         @endif
+        <script>
+            function deleteTask() {
+                if (confirm('本当に削除しますか？')) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
     </body>
 </html>
