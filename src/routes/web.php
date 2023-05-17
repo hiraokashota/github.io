@@ -2,11 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
-|--------------------------------------------------------------------------
+|--------------------------------------------------------------------       ------
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
@@ -23,6 +24,6 @@ Route::resource('tasks', TaskController::class);
 Route::post('tasks/create',[TaskController::class,'store']);//タスク追加
 Route::post('tasks/edit',[TaskController::class,'edit']);//タスク編集
 Route::post('tasks/delete',[TaskController::class,'delete']);//タスク削除
-Route::post('tasks/report',[ReportController::class,'index']);//レポート画面
+Route::get('/tasks/{ id }/report',[ReportController::class,'index'])->name('report');//レポート画面
 
 //Route::get('report','App\Http\Controllers\ReportController@index');

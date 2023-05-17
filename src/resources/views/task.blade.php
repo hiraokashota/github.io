@@ -62,7 +62,7 @@
                                     <tr>
                                         <td class="px-3 py-4 text-sm text-gray-500">
                                             <div>
-                                            <a href="/tasks/{{ $task->id }}/report/" class="block shrink-0 underline underline-offset-2">
+                                            <a href={{ route('report' , ['id' => $task->id ] }} class="block shrink-0 underline underline-offset-2">
                                                 {{ $task->task_name }}
                                             </a>
                                             </div>
@@ -84,7 +84,8 @@
                                                 </div>
                                                 <div>
                                                     <a href="/tasks/{{ $task->id }}/edit/"
-                                                        class="inline-block text-center py-4 w-20 underline underline-offset-2 text-sky-600 md:hover:bg-sky-100 transition-colors">編集</a>
+                                                        class="inline-block text-center py-4 w-20 underline underline-offset-2 text-sky-600 md:hover:bg-sky-100 transition-colors">編集
+                                                    </a>
                                                 </div>
                                                 
                                                 <div>

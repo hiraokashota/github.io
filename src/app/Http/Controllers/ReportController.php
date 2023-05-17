@@ -7,10 +7,10 @@ use App\Models\Report;
 
 class ReportController extends Controller
 {
-  //DB接続
-    public function index($id)
+  
+    public function index()
   {
-    $reports = Report::find($id);
-    return view('report', ['reports' => $reports]);
+    //$reports = Report::find($id);
+    return view('report');
   }
 }
