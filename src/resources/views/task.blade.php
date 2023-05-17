@@ -6,11 +6,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
         <title>タスク</title>
-        <style>
-        body{font-size:16pt; color:#999;}
-        h1{font-size: 40pt; text-align: center;
-            }
-        </style>
+        
     </head>
     <body>
     <header class="bg-slate-800">
@@ -24,7 +20,7 @@
     <main class="grow">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="py-[100px]">
-                <p class="text-2xl font-bold text-center">タスク日</p>
+                <p class="text-2xl font-bold text-center">タスク日追加</p>
                 <form action="/tasks" method="post" class="mt-10">
                   @csrf
 
@@ -55,7 +51,7 @@
                                 <tr>
                                     <th scope="col"
                                         class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">
-                                        タスク</th>
+                                        タスク日</th>
                                     <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
                                         <span class="sr-only">Actions</span>
                                     </th>
@@ -66,7 +62,9 @@
                                     <tr>
                                         <td class="px-3 py-4 text-sm text-gray-500">
                                             <div>
+                                            <a href="/tasks/{{ $task->id }}/report/" class="block shrink-0 underline underline-offset-2">
                                                 {{ $task->task_name }}
+                                            </a>
                                             </div>
                                         </td>
                                         <td class="p-0 text-right text-sm font-medium">
@@ -111,6 +109,7 @@
             </div>
         @endif
         <script>
+            //削除確認表示
             function deleteTask() {
                 if (confirm('本当に削除しますか？')) {
                     return true;

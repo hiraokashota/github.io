@@ -13,7 +13,10 @@ class TaskController extends Controller
   //DB接続
     public function index(Request $request)
    {
-    $tasks = DB::table('tasks')->get();    
+    //日付が新しい順番にタスクを表示
+    
+    $tasks = Task::all()->sortByDesc("task_name");
+    //$tasks = DB::table('tasks')->get();    
      return view('task', ['tasks' => $tasks]);
    }
 
@@ -33,9 +36,12 @@ class TaskController extends Controller
     $task = new Task;
     //モデル->カラム名 = 値 で、データを割り当てる
     $task->task_name = $request->input('task_name');
+    //ステータス・削除フラグの初期化
+    $task->status_flg = 1;
+    $task->delete_flg = 0;
+    
     //データベースに保存
     $task->save();
-    dd('aaaaaaa');
     //リダイレクト
     return redirect('/tasks');
     }
@@ -50,10 +56,10 @@ class TaskController extends Controller
     //タスク名アップデート
   public function update(Request $request, $id)
   {
-    dd($request->status);
+    //dd($request->status);
     //編集を行ったとき
-    //ステータスはnullになる
-    if($request->status === null){
+    //ステータスは0になる
+    //if($request->status === 0){
       $rules = [
         'task_name' => 'required|max:8',
       ];
@@ -64,18 +70,18 @@ class TaskController extends Controller
       $task = Task::find($id);
       //モデル->カラム名 = 値 で、データを割り当てる
       $task->task_name = $request->input('task_name');
-      $task->
+      
       //データベースに保存
       $task->save();  
-    }else{
+    //}else{
      //「完了」ボタンを押したとき
       //該当のタスクを検索
       $task = Task::find($id);
       //モデル->カラム名 = 値 で、データを割り当てる
-      $task->status = true; //true:完了、false:未完了
+    //  $task->status = 1; //1:完了
       //データベースに保存
       $task->save();
-    }
+    //}
     //リダイレクト
     return redirect('/tasks');
   }
