@@ -16,7 +16,7 @@ class TaskController extends Controller
     //日付が新しい順番にタスクを表示
     
     $tasks = Task::all()->sortByDesc("task_name");
-    //$tasks = DB::table('tasks')->get();    
+       
      return view('task', ['tasks' => $tasks]);
    }
 
@@ -28,7 +28,7 @@ class TaskController extends Controller
         'task_name' => 'required|max:8',
       ];
     
-      $messages = ['required' => '必須項目です', 'max' => '8文字以下にしてください。'];
+      $messages = ['required' => '必須項目です', 'max' => '8文字にしてください。'];
     
       Validator::make($request->all(), $rules, $messages)->validate();
     
@@ -38,7 +38,6 @@ class TaskController extends Controller
     $task->task_name = $request->input('task_name');
     //ステータス・削除フラグの初期化
     $task->status_flg = 1;
-    $task->delete_flg = 0;
     
     //データベースに保存
     $task->save();
@@ -96,13 +95,4 @@ class TaskController extends Controller
     //リダイレクト
     return redirect('/tasks');
   }
-  //Task一覧の返却(論理削除)
-  // public function getTask()
-  // {
-  // $users = DB::table($this->table)
-  //   ->whereNull('deleted_flg')
-  //   ->get();
-  // return $users;
-  // }
-
 }

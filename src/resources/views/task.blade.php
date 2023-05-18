@@ -62,7 +62,7 @@
                                     <tr>
                                         <td class="px-3 py-4 text-sm text-gray-500">
                                             <div>
-                                            <a href={{ route('report' , ['id' => $task->id ] }} class="block shrink-0 underline underline-offset-2">
+                                            <a  class="block shrink-0 underline underline-offset-2">
                                                 {{ $task->task_name }}
                                             </a>
                                             </div>
