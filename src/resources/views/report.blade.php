@@ -20,8 +20,12 @@
         }
         textarea{
             resize:none;
-            width:600px;
+            width:800px;
             height:130px;
+        }
+        .totask{
+            padding: 5px 15px;
+            margin-top:20px;
         }
         </style>
     </head>
@@ -32,51 +36,58 @@
             @csrf
             <div>
                 <h2>目標値(直接入力)</h2>
-                <input type="text" name="goal_value" value="{{ $report->goal_value }}" size = "10" maxlength = "10">ml
+                <input type="text" name="goal_value" value="{{ $report->goal_value }}" size = "10" maxlength = "10">g
             </div>
                 <div class="contents">
                     <div class="item">
                         酒名1:<input type="text" name="alc_name1" value= "{{ $report->alc_name1 }}" size = "20" maxlength = "20"><br>
                         アルコール度数:<input type="text" name ="abv1" value="{{ $report->abv1 }}" size = "10" maxlength = "5">% <br> 
                         容量:<input type="text" name="capacity1" value="{{ $report->capacity1 }}" size = "10" maxlength = "10">ml <br>
-                        個数:<div id="disp_count" name="count1">{{ $report-> count1}}</div>
+                        個数:<input type="text" name ="count1" value="{{ $report->count1 }}" size = "5" maxlength = "5">
+                            <!-- <div id="disp_count" name="count1"></div>
                             <input type="button" value="+" id="btn_count_up" />
-                            <input type="button" value="リセット" id="btn_reset" />
+                            <input type="button" value="リセット" id="btn_reset" /> -->
                     </div>
 
                     <div class="item">
                         酒名2:<input type="text" name="alc_name2" value= "{{ $report->alc_name2 }}" size = "20" maxlength = "20"><br>
                         アルコール度数:<input type="text" name ="abv2" value="{{ $report->abv2 }}" size = "10" maxlength = "5">% <br> 
                         容量:<input type="text" name="capacity2" value="{{ $report->capacity2}}" size = "10" maxlength = "10">ml <br>
-                        個数:<div id="disp_count">{{ $report-> count2}}</div>
+                        個数:<input type="text" name ="count2" value="{{ $report->count2 }}" size = "5" maxlength = "5">
+                            <!-- <div id="disp_count">{{ $report-> count2}}</div>
                             <input type="button" value="+" id="btn_count_up" />
-                            <input type="button" value="リセット" id="btn_reset" />
+                            <input type="button" value="リセット" id="btn_reset" /> -->
                     </div>
         
                     <div class="item">
                         酒名3:<input type="text" name="alc_name3" value= "{{ $report->alc_name3 }}" size = "20" maxlength = "20"><br>
                         アルコール度数:<input type="text" name ="abv3" value="{{ $report->abv3 }}" size = "10" maxlength = "5">% <br> 
-                        容量:<input type="text" name="capacity1" value="{{ $report->capacity3}}" size = "10" maxlength = "10">ml <br>
-                        個数:<div id="disp_count">{{ $report-> count3}}</div>
+                        容量:<input type="text" name="capacity3" value="{{ $report->capacity3}}" size = "10" maxlength = "10">ml <br>
+                        個数:<input type="text" name ="count3" value="{{ $report->count3 }}" size = "5" maxlength = "5">
+                            <!-- <div id="disp_count">{{ $report-> count3}}</div>
                             <input type="button" value="+" id="btn_count_up" />
-                            <input type="button" value="リセット" id="btn_reset" />
+                            <input type="button" value="リセット" id="btn_reset" /> -->
                     </div>
             
                     <div class="item">
                         酒名4:<input type="text" name="alc_name4" value= "{{ $report->alc_name4 }}" size = "20" maxlength = "20"><br>
                         アルコール度数:<input type="text" name ="abv4" value="{{ $report->abv4 }}" size = "10" maxlength = "5">% <br> 
                         容量:<input type="text" name="capacity4" value="{{ $report->capacity4}}" size = "10" maxlength = "10">ml <br>
-                        個数:<div id="disp_count">{{ $report-> count4}}</div>
+                        個数:<input type="text" name ="count4" value="{{ $report->count4 }}" size = "5" maxlength = "5">
+                            <!-- 個数カウント -->
+                            <!-- <div id="disp_count">{{ $report-> count4}}</div>
                             <input type="button" value="+" id="btn_count_up" />
-                            <input type="button" value="リセット" id="btn_reset" />
+                            <input type="button" value="リセット" id="btn_reset" /> -->
                     </div>
                 </div>
-            <h2>実数値</h2> 
-            <input type="text" name="result_value" value="{{ $report->result_value }}" size = "10" maxlength = "10">ml  
-            
+            <h2>実数値(実際に摂取したアルコール量)</h2> 
+            <input type="text" name="result_value" value="{{ $report->result_value }}" size = "10" maxlength = "10">g 
+            <p>アルコール量 = 容量 × アルコール度数 × 0.8</p>
                 <h2>メモ</h2>
                 <textarea name="memo" row="5" cols="60">{{ $report->memo }}</textarea><br>
-                <input type="submit" value="完了" >
+                <div align="center">
+                    <button class="totask" type="submit" value="" name="">完了</button>
+                </div> 
         </form>
         
         <script>

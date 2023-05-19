@@ -16,6 +16,8 @@ class TaskController extends Controller
     //日付が新しい順番にタスクを表示
     
     $tasks = Task::all()->sortByDesc("task_name");
+    $tasks = Task::where('status', false)->get();
+    $tasks = Task::simplePaginate(5);
        
      return view('task', ['tasks' => $tasks]);
    }
@@ -36,8 +38,6 @@ class TaskController extends Controller
     $task = new Task;
     //モデル->カラム名 = 値 で、データを割り当てる
     $task->task_name = $request->input('task_name');
-    //ステータス・削除フラグの初期化
-    $task->status_flg = 1;
     
     //データベースに保存
     $task->save();
@@ -55,10 +55,9 @@ class TaskController extends Controller
     //タスク名アップデート
   public function update(Request $request, $id)
   {
-    //dd($request->status);
-    //編集を行ったとき
-    //ステータスは0になる
-    //if($request->status === 0){
+    //dd($request->status); 完了ボタンをおしたら0の値がとれるはずなのだが...とれない
+    //「編集」ボタンを押したとき
+    if($request->status === null){
       $rules = [
         'task_name' => 'required|max:8',
       ];
@@ -72,15 +71,15 @@ class TaskController extends Controller
       
       //データベースに保存
       $task->save();  
-    //}else{
-     //「完了」ボタンを押したとき
+    }else{
+     //完了」ボタンを押したとき
       //該当のタスクを検索
       $task = Task::find($id);
       //モデル->カラム名 = 値 で、データを割り当てる
-    //  $task->status = 1; //1:完了
+      $task->status = true; //true:完了、false:未完了
       //データベースに保存
       $task->save();
-    //}
+    }
     //リダイレクト
     return redirect('/tasks');
   }

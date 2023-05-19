@@ -17,7 +17,7 @@ return new class extends Migration
             
             $table->increments('id');
             $table->integer('task_name')->length(8);
-            $table->integer('status_flg');
+            $table->boolean('status')->default(false);
             $table->softDeletes();
             $table->timestamp('updated_at')->useCurrent()->nullable();
             $table->timestamp('created_at')->useCurrent()->nullable();

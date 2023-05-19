@@ -41,9 +41,9 @@
         </div>
     </main>
         
-
+    <div class="max-w-7xl mx-auto mt-5">{{ $tasks -> links() }}</div>
         @if ($tasks->isNotEmpty())
-            <div class="max-w-7xl mx-auto mt-20">
+            <div class="max-w-7xl mx-auto mt-5">
                 <div class="inline-block min-w-full py-2 align-middle">
                     <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-300">
@@ -77,9 +77,10 @@
                                                         @csrf
                                                         @method('PUT')
 
-                                                        <input type="hidden" name="status" value="{{$task->status_flg}}">
+                                                        <input type="hidden" name="status" value="{{$task->status}}">
                                                         <button type="submit"
-                                                            class="bg-emerald-700 py-4 w-20 text-white md:hover:bg-emerald-800 transition-colors">完了</button>
+                                                            class="bg-emerald-700 py-4 w-20 text-white md:hover:bg-emerald-800 transition-colors">完了
+                                                        </button>
                                                     </form>
                                                 </div>
                                                 <div>
