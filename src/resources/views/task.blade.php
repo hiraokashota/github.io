@@ -41,7 +41,7 @@
         </div>
     </main>
         
-    <div class="max-w-7xl mx-auto mt-5">{{ $tasks -> links() }}</div>
+    
         @if ($tasks->isNotEmpty())
             <div class="max-w-7xl mx-auto mt-5">
                 <div class="inline-block min-w-full py-2 align-middle">

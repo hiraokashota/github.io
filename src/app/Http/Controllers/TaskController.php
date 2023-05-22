@@ -14,10 +14,11 @@ class TaskController extends Controller
     public function index(Request $request)
    {
     //日付が新しい順番にタスクを表示
-    
     $tasks = Task::all()->sortByDesc("task_name");
-    $tasks = Task::where('status', false)->get();
-    $tasks = Task::simplePaginate(5);
+    //ステータス変更
+    //$tasks = Task::where('status', false)->get();
+    //ページング処理
+    //$tasks = Task::simplePaginate(5);
        
      return view('task', ['tasks' => $tasks]);
    }
@@ -30,8 +31,7 @@ class TaskController extends Controller
         'task_name' => 'required|max:8',
       ];
     
-      $messages = ['required' => '必須項目です', 'max' => '8文字にしてください。'];
-    
+      $messages = ['required' => '必須項目です', 'max' => '8文字(年月日)にしてください。'];
       Validator::make($request->all(), $rules, $messages)->validate();
     
     //モデルをインスタンス化
