@@ -25,7 +25,7 @@ Route::post('tasks/create',[TaskController::class,'store']);//タスク追加
 Route::post('tasks/edit',[TaskController::class,'edit']);//タスク編集
 Route::post('tasks/delete',[TaskController::class,'delete']);//タスク削除
 //Route::get('/tasks/{ id }/report',[ReportController::class,'index'])->name('report');//レポート画面
-Route::get('/', [ReportController::class,'index']);
+Route::get('tasks/report', [ReportController::class,'index'])->name('report');
 Route::post('/',[ReportController::class,'store']);//タスク追加
 
 //Route::get('report','App\Http\Controllers\ReportController@index');

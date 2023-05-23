@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Report;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -50,6 +51,12 @@ class TaskController extends Controller
   {
     $task = Task::find($id);
     return view('edit', compact('task'));
+  }
+
+  public function report($id)
+  {
+    $task = Task::find($id);
+    return view('report', compact('task'));
   }
 
     //タスク名アップデート

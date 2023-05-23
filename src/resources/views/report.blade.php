@@ -11,7 +11,7 @@
             }
         .contents {
             display: flex;
-            width:1400px;
+            width:1100px;
         }
         .item{
             width:calc(100% / 4);
@@ -40,40 +40,40 @@
             </div>
                 <div class="contents">
                     <div class="item">
-                        酒名1:<input type="text" name="alc_name1" value= "{{ $report->alc_name1 }}" size = "20" maxlength = "20"><br>
-                        アルコール度数:<input type="text" name ="abv1" value="{{ $report->abv1 }}" size = "10" maxlength = "5">% <br> 
-                        容量:<input type="text" name="capacity1" value="{{ $report->capacity1 }}" size = "10" maxlength = "10">ml <br>
-                        個数:<input type="text" name ="count1" value="{{ $report->count1 }}" size = "5" maxlength = "5">
+                        酒名1:<input type="text" name="alc_name1" value= "{{ $report->alc_name1 }}" size = "17" maxlength = "20"><br>
+                        アルコール度数:<input type="text" name ="abv1" value="{{ $report->abv1 }}" size = "3" maxlength = "5">% <br> 
+                        容量:<input type="text" name="capacity1" value="{{ $report->capacity1 }}" size = "5" maxlength = "10">ml <br>
+                        個数:<input type="text" name ="count1" value="{{ $report->count1 }}" size = "3" maxlength = "5">杯
                             <!-- <div id="disp_count" name="count1"></div>
                             <input type="button" value="+" id="btn_count_up" />
                             <input type="button" value="リセット" id="btn_reset" /> -->
                     </div>
 
                     <div class="item">
-                        酒名2:<input type="text" name="alc_name2" value= "{{ $report->alc_name2 }}" size = "20" maxlength = "20"><br>
-                        アルコール度数:<input type="text" name ="abv2" value="{{ $report->abv2 }}" size = "10" maxlength = "5">% <br> 
-                        容量:<input type="text" name="capacity2" value="{{ $report->capacity2}}" size = "10" maxlength = "10">ml <br>
-                        個数:<input type="text" name ="count2" value="{{ $report->count2 }}" size = "5" maxlength = "5">
+                        酒名2:<input type="text" name="alc_name2" value= "{{ $report->alc_name2 }}" size = "17" maxlength = "20"><br>
+                        アルコール度数:<input type="text" name ="abv2" value="{{ $report->abv2 }}" size = "3" maxlength = "5">% <br> 
+                        容量:<input type="text" name="capacity2" value="{{ $report->capacity2}}" size = "5" maxlength = "10">ml <br>
+                        個数:<input type="text" name ="count2" value="{{ $report->count2 }}" size = "3" maxlength = "5">杯
                             <!-- <div id="disp_count">{{ $report-> count2}}</div>
                             <input type="button" value="+" id="btn_count_up" />
                             <input type="button" value="リセット" id="btn_reset" /> -->
                     </div>
         
                     <div class="item">
-                        酒名3:<input type="text" name="alc_name3" value= "{{ $report->alc_name3 }}" size = "20" maxlength = "20"><br>
-                        アルコール度数:<input type="text" name ="abv3" value="{{ $report->abv3 }}" size = "10" maxlength = "5">% <br> 
-                        容量:<input type="text" name="capacity3" value="{{ $report->capacity3}}" size = "10" maxlength = "10">ml <br>
-                        個数:<input type="text" name ="count3" value="{{ $report->count3 }}" size = "5" maxlength = "5">
+                        酒名3:<input type="text" name="alc_name3" value= "{{ $report->alc_name3 }}" size = "17" maxlength = "20"><br>
+                        アルコール度数:<input type="text" name ="abv3" value="{{ $report->abv3 }}" size = "3" maxlength = "5">% <br> 
+                        容量:<input type="text" name="capacity3" value="{{ $report->capacity3}}" size = "5" maxlength = "10">ml <br>
+                        個数:<input type="text" name ="count3" value="{{ $report->count3 }}" size = "3" maxlength = "5">杯
                             <!-- <div id="disp_count">{{ $report-> count3}}</div>
                             <input type="button" value="+" id="btn_count_up" />
                             <input type="button" value="リセット" id="btn_reset" /> -->
                     </div>
             
                     <div class="item">
-                        酒名4:<input type="text" name="alc_name4" value= "{{ $report->alc_name4 }}" size = "20" maxlength = "20"><br>
-                        アルコール度数:<input type="text" name ="abv4" value="{{ $report->abv4 }}" size = "10" maxlength = "5">% <br> 
-                        容量:<input type="text" name="capacity4" value="{{ $report->capacity4}}" size = "10" maxlength = "10">ml <br>
-                        個数:<input type="text" name ="count4" value="{{ $report->count4 }}" size = "5" maxlength = "5">
+                        酒名4:<input type="text" name="alc_name4" value= "{{ $report->alc_name4 }}" size = "17" maxlength = "20"><br>
+                        アルコール度数:<input type="text" name ="abv4" value="{{ $report->abv4 }}" size = "3" maxlength = "5">% <br> 
+                        容量:<input type="text" name="capacity4" value="{{ $report->capacity4}}" size = "5" maxlength = "10">ml <br>
+                        個数:<input type="text" name ="count4" value="{{ $report->count4 }}" size = "3" maxlength = "5">杯
                             <!-- 個数カウント -->
                             <!-- <div id="disp_count">{{ $report-> count4}}</div>
                             <input type="button" value="+" id="btn_count_up" />

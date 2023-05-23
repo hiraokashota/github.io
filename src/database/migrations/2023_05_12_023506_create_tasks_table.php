@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             
             $table->increments('id');
-            $table->integer('task_name')->length(8);
+            $table->date('task_name');
             $table->boolean('status')->default(false);
             $table->softDeletes();
             $table->timestamp('updated_at')->useCurrent()->nullable();

@@ -27,11 +27,14 @@
                   <div class="flex flex-col items-center">
                     <label class="w-full max-w-3xl mx-auto">
                         <input
-                            class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-4 pl-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                            placeholder="20230519" type="text" name="task_name" />
+                            class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 
+                            rounded-md py-4 pl-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 
+                            focus:ring-1 sm:text-sm"
+                            placeholder="YYYYmmdd" name="task_name" />
                     </label>
 
-                    <button type="submit" class="mt-8 p-4 bg-slate-800 text-white w-full max-w-xs hover:bg-slate-900 transition-colors">
+                    <button type="submit" class="mt-8 p-4 bg-slate-800 text-white w-full max-w-xs 
+                    hover:bg-slate-900 transition-colors">
                         追加する
                     </button>
                   </div>
@@ -62,7 +65,7 @@
                                     <tr>
                                         <td class="px-3 py-4 text-sm text-gray-500">
                                             <div>
-                                            <a  class="block shrink-0 underline underline-offset-2">
+                                            <a href="/tasks/{{ $task->id }}/report/" class="block shrink-0 underline underline-offset-2">
                                                 {{ $task->task_name }}
                                             </a>
                                             </div>
@@ -79,13 +82,15 @@
 
                                                         <input type="hidden" name="status" value="{{$task->status}}">
                                                         <button type="submit"
-                                                            class="bg-emerald-700 py-4 w-20 text-white md:hover:bg-emerald-800 transition-colors">完了
+                                                            class="bg-emerald-700 py-4 w-20 text-white md:hover:bg-emerald-800 
+                                                            transition-colors">完了
                                                         </button>
                                                     </form>
                                                 </div>
                                                 <div>
                                                     <a href="/tasks/{{ $task->id }}/edit/"
-                                                        class="inline-block text-center py-4 w-20 underline underline-offset-2 text-sky-600 md:hover:bg-sky-100 transition-colors">編集
+                                                        class="inline-block text-center py-4 w-20 underline underline-offset-2 
+                                                        text-sky-600 md:hover:bg-sky-100 transition-colors">編集
                                                     </a>
                                                 </div>
                                                 

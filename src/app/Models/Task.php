@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Task extends Model
 {
+    protected $dates =[
+        'task_name'
+    ];
     use HasFactory;
     use SoftDeletes;
 }
