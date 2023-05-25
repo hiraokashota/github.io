@@ -83,13 +83,13 @@
                                                         <input type="hidden" name="status" value="{{$task->status}}">
                                                         <button type="submit"
                                                             class="bg-emerald-700 py-4 w-20 text-white md:hover:bg-emerald-800 
-                                                            transition-colors">完了
+                                                            transition-colors">✔
                                                         </button>
                                                     </form>
                                                 </div>
                                                 <div>
                                                     <a href="/tasks/{{ $task->id }}/edit/"
-                                                        class="bg-lime-500 inline-block text-center py-4 w-20 underline underline-offset-2 
+                                                        class="bg-sky-500 inline-block text-center py-4 w-20 underline underline-offset-2 
                                                         text-sky-600 md:hover:bg-sky-100 transition-colors">編集
                                                     </a>
                                                 </div>

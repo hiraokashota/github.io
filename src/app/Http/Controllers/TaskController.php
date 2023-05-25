@@ -42,6 +42,9 @@ class TaskController extends Controller
     
     //データベースに保存
     $task->save();
+    $report = new Report;
+    $report->id = $task->id;
+    $report-> save();
     //リダイレクト
     return redirect('/tasks');
     }

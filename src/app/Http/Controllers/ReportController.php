@@ -11,34 +11,23 @@ class ReportController extends Controller
   
     public function report($id)
   {
-    //特定のidのデータを取得
-    if(isset($id)){
-      $reports = Report::find($id);
-    } else {
-      //$reports = DB::select('select * from reports');
-    }
     
-    return view('report',['reports' => $reports]);
+    //特定のidデータを取得
+    if(isset($id)){
+      //dd('1.1');
+      $report = Report::find($id);
+      //echo(gettype($reports));
+    } else {
+      $report = Report::select('select * from reports');
+    }
+    //dd($reports);
+    return view('report')->with(['reports' => $report]);
+    
   }
+
     public function update(Request $request)
   {
-    //モデルをインスタンス化
-    $report = new Report; 
-
-
-    // アルコール量の式
-    // int category1 =  capacity1 * (100 % abv1) * 0.8; //酒名1のアルコール量
-    // int category2 =  capacity2 * (100 % abv2) * 0.8; //酒名2のアルコール量
-    // int category3 =  capacity3 * (100 % abv3) * 0.8; //酒名3のアルコール量
-    // int category4 =  capacity4 * (100 % abv4) * 0.8; //酒名4のアルコール量
-    // 総アルコール量
-    // result_value = category1 + category2 + category3 + category4;
-
-    //これだと更新ではなくてデータの追加になる。
-    //$report -> save();
-  
-    //データベースに更新
-    $report->update([
+    DB::table('reports')->where('id', $request->id)->update([
       'goal_value' => $request->input('goal_value'),
       'result_value' =>$request->input('result_value'),
       'memo' => $request->input('memo'),
@@ -59,10 +48,22 @@ class ReportController extends Controller
       'abv4' => $request->input('abv4'),
       'capacity4' => $request->input('capacity4'),
     ]);
+    //dd('2');
+    //モデルをインスタンス化
+    //$report  = new Report; 
 
-    $report -> save();
-
+    // アルコール量の式
+    // int category1 =  capacity1 * (100 % abv1) * 0.8; //酒名1のアルコール量
+    // int category2 =  capacity2 * (100 % abv2) * 0.8; //酒名2のアルコール量
+    // int category3 =  capacity3 * (100 % abv3) * 0.8; //酒名3のアルコール量
+    // int category4 =  capacity4 * (100 % abv4) * 0.8; //酒名4のアルコール量
+    // 総アルコール量
+    // result_value = category1 + category2 + category3 + category4;
+      
+    //データベースに更新
+    //$report->update();
+    
     //リダイレクト
-    return redirect('/');
+    return redirect('/tasks');
   }
 }

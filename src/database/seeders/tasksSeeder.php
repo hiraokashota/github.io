@@ -29,13 +29,7 @@ class tasksSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
               ],
-              [
-                'id' => '3',
-                'task_name' => 20230524,
-                'deleted_at' => null,
-                'created_at' => now(),
-                'updated_at' => now(),
-              ],
+              
             ]
         );  
     }
