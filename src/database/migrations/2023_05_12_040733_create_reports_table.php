@@ -18,22 +18,22 @@ return new class extends Migration
             $table->string('memo',100)->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
             $table->timestamp('created_at')->useCurrent()->nullable();
-            $table->string('alc_name1',20);
-            $table->string('alc_name2',20);
-            $table->string('alc_name3',20);
-            $table->string('alc_name4',20);
-            $table->integer('count1')->length(2);
-            $table->integer('count2')->length(2);
-            $table->integer('count3')->length(2);
-            $table->integer('count4')->length(2);
-            $table->integer('abv1')->length(2);
-            $table->integer('abv2')->length(2);
-            $table->integer('abv3')->length(2);
-            $table->integer('abv4')->length(2);
-            $table->integer('capacity1')->length(4);
-            $table->integer('capacity2')->length(4);
-            $table->integer('capacity3')->length(4);
-            $table->integer('capacity4')->length(4);
+            $table->string('alc_name1',20)->nullable();
+            $table->string('alc_name2',20)->nullable();
+            $table->string('alc_name3',20)->nullable();
+            $table->string('alc_name4',20)->nullable();
+            $table->integer('count1')->length(2)->nullable();
+            $table->integer('count2')->length(2)->nullable();
+            $table->integer('count3')->length(2)->nullable();
+            $table->integer('count4')->length(2)->nullable();
+            $table->integer('abv1')->length(2)->nullable();
+            $table->integer('abv2')->length(2)->nullable();
+            $table->integer('abv3')->length(2)->nullable();
+            $table->integer('abv4')->length(2)->nullable();
+            $table->integer('capacity1')->length(4)->nullable();
+            $table->integer('capacity2')->length(4)->nullable();
+            $table->integer('capacity3')->length(4)->nullable();
+            $table->integer('capacity4')->length(4)->nullable();
         });
     }
 

@@ -53,12 +53,6 @@ class TaskController extends Controller
     return view('edit', compact('task'));
   }
 
-  public function report($id)
-  {
-    $task = Task::find($id);
-    return view('report', compact('task'));
-  }
-
     //タスク名アップデート
   public function update(Request $request, $id)
   {
